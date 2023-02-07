@@ -122,6 +122,18 @@ namespace StarterAssets
             }
         }
 
+        public void StopMoving()
+        {
+            Debug.Log("StopMoving");
+            MoveSpeed = 0;
+        }
+
+        public void SetMoveSpeed(float speed)
+        {
+            Debug.Log("setMoveSpeed");
+            MoveSpeed = speed;
+        }
+
 
         private void Awake()
         {

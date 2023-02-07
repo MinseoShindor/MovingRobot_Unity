@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using StarterAssets;
+using UnityEngine.Events;
 
 public class NPCAreaController : MonoBehaviour
 {
-    public GameObject NPC;
+    public UnityEvent onPlayerEntered;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,23 +25,8 @@ public class NPCAreaController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player") 
         {
-            GameObject canvas = GameObject.FindWithTag("Canvas");
-            if (canvas == null)
-            {
-                return ;
-            } //nullReferenceException 1) canvas
+                onPlayerEntered.Invoke();
 
-            Transform transform = canvas.transform;
-            GameObject panel = transform.Find("Panel").gameObject;
-            GameObject joysticksCanvas = transform.Find("UI_Canvas_StarterAssetsInputs_Joysticks").gameObject;
-
-            if (panel == null)
-            {
-                return ;
-            } //nullReferenceException 2) panel
-        
-            panel.SetActive(true);
         }
-
     }
 }
